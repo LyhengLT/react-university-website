@@ -23,6 +23,31 @@ nav .navbar-toggler:focus {
   box-shadow: none;
 }
 
+@keyframes logoPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(220, 53, 69, 0); }
+}
+
+@keyframes logoSpin {
+  from { transform: rotate(0deg) scale(1.1); }
+  to { transform: rotate(360deg) scale(1.1); }
+}
+
+.navbar-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #dc3545;
+  animation: logoPulse 2s ease-in-out infinite;
+  transition: border-radius 0.3s ease;
+}
+
+.navbar-logo:hover {
+  animation: logoSpin 0.6s linear 1, logoPulse 2s ease-in-out infinite 0.6s;
+  border-radius: 4px;
+}
+
 .scale-hover-effect {
   transition: transform .5s ease;
 }

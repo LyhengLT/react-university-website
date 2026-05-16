@@ -18,7 +18,7 @@ function App() {
         <Container>
           <Navbar.Brand>
             <Link to="/" className='navbar-brand d-flex align-items-center'>
-              <img src={belteiLogo} alt="Beltei International University" style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '4px' }} />
+              <img src={belteiLogo} alt="Beltei International University" className="navbar-logo" />
               <span className='mx-2 text-light lh-1 fw-semibold'>
                 BELTEI
                 <br></br>
