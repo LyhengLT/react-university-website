@@ -1,5 +1,5 @@
 import './App.css';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link, Routes, Route, useLocation } from 'react-router-dom';
 import belteiLogo from './utils/images/beltei_international_university_in_cambodia.jpg';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -12,13 +12,14 @@ import Contact from './pages/Contact/Contact';
 import NotFound from './pages/NotFound/NotFound';
 
 function App() {
+  const location = useLocation();
   return (
     <div>
       <Navbar expand="lg" className='position-absolute w-100'>
         <Container>
           <Navbar.Brand>
             <Link to="/" className='navbar-brand d-flex align-items-center'>
-              <img src={belteiLogo} alt="Beltei International University" className="navbar-logo" />
+              <img key={location.pathname} src={belteiLogo} alt="Beltei International University" className="navbar-logo" />
               <span className='mx-2 text-light lh-1 fw-semibold'>
                 BELTEI
                 <br></br>

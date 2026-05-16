@@ -28,6 +28,11 @@ nav .navbar-toggler:focus {
   50% { box-shadow: 0 0 0 8px rgba(220, 53, 69, 0); }
 }
 
+@keyframes logoSpinOnce {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 @keyframes logoSpin {
   from { transform: rotate(0deg) scale(1.1); }
   to { transform: rotate(360deg) scale(1.1); }
@@ -39,7 +44,7 @@ nav .navbar-toggler:focus {
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #dc3545;
-  animation: logoPulse 2s ease-in-out infinite;
+  animation: logoSpinOnce 0.6s ease-out 1, logoPulse 2s ease-in-out infinite 0.6s;
   transition: border-radius 0.3s ease;
 }
 
