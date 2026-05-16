@@ -1,10 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --navy:          #0d1b3e;
+  --navy-mid:      #162554;
+  --navy-light:    #1e3a8a;
+  --crimson:       #c1272d;
+  --crimson-light: #e53935;
+  --gold:          #f5a623;
+  --light-bg:      #f0f4f8;
+  --text-dark:     #1a2332;
+  --text-muted:    #64748b;
+  --gradient-navy:   linear-gradient(135deg, #0d1b3e 0%, #1e3a8a 100%);
+  --gradient-crimson: linear-gradient(135deg, #c1272d 0%, #ff5252 100%);
+  --gradient-hero:   linear-gradient(135deg, rgba(13,27,62,0.88) 0%, rgba(30,58,138,0.72) 100%);
+  --card-radius:   14px;
+  --card-shadow:   0 4px 24px rgba(13,27,62,0.10);
+  --card-shadow-hover: 0 20px 50px rgba(13,27,62,0.18);
+}
 
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--text-dark);
+  background: #ffffff;
 }
 
 code {
