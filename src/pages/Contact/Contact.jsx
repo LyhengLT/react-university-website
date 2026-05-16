@@ -13,12 +13,12 @@ function Contact() {
     <div className='contact-page'>
         <header className='height-75'>
             <div className='container h-100 d-flex flex-column align-items-center justify-content-center text-light'>
-                <h1 className='text-center fw-semibold'>Get In Touch</h1>
-                <p className='text-center w-75 mb-5'>WITH US NOW</p>
+                <h1 className='text-center fw-semibold hero-text-1'>Get In Touch</h1>
+                <p className='text-center w-75 mb-5 hero-text-2'>WITH US NOW</p>
             </div>
         </header>
 
-        <div className='container my-5 d-flex justify-content-center'>
+        <div className='container my-5 d-flex justify-content-center reveal reveal-up'>
             <Form id='contact-form'>
                 <Row className='mb-3'>
                     <Col sm={12} md={6} className='mb-3 mb-md-0'>
@@ -64,24 +64,30 @@ function Contact() {
                     <Form.Control as="textarea" rows={3} />
                 </Form.Group>
 
-                <Button variant="danger btn-lg" type='submit'>Submit</Button>
+                <Button variant="danger btn-lg btn-shimmer" type='submit'>Submit</Button>
             </Form>
         </div>
 
         <div className='bg-dark text-light p-5'>
             <div className='container'>
-                <h2 className='text-center mb-5'>Our Locations</h2>
+                <h2 className='text-center mb-5 reveal reveal-up heading-underline'>Our Locations</h2>
                 <div className='row g-4'>
-                    <div className='col-lg-4 d-flex flex-column align-items-center'>
-                        <img src={LondonLocationImg} className='img-fluid' alt="" />
+                    <div className='col-lg-4 d-flex flex-column align-items-center reveal reveal-up delay-1'>
+                        <div className='img-zoom w-100'>
+                            <img src={LondonLocationImg} className='img-fluid' alt="" />
+                        </div>
                         <h3 className='text-center mt-3'>Toul Sleng</h3>
                     </div>
-                    <div className='col-lg-4 d-flex flex-column align-items-center'>
-                        <img src={ManchesterLocationImg} className='img-fluid' alt="" />
+                    <div className='col-lg-4 d-flex flex-column align-items-center reveal reveal-up delay-2'>
+                        <div className='img-zoom w-100'>
+                            <img src={ManchesterLocationImg} className='img-fluid' alt="" />
+                        </div>
                         <h3 className='text-center mt-3'>Chom Chav</h3>
                     </div>
-                    <div className='col-lg-4 d-flex flex-column align-items-center'>
-                        <img src={LiverpoolLocationImg} className='img-fluid' alt="" />
+                    <div className='col-lg-4 d-flex flex-column align-items-center reveal reveal-up delay-3'>
+                        <div className='img-zoom w-100'>
+                            <img src={LiverpoolLocationImg} className='img-fluid' alt="" />
+                        </div>
                         <h3 className='text-center mt-3'>Prey Sor</h3>
                     </div>
                 </div>

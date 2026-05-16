@@ -39,17 +39,19 @@ function Courses() {
     <div className='courses-page'>
         <header className='height-75'>
             <div className='container h-100 d-flex flex-column align-items-center justify-content-center text-light'>
-                <h1 className='text-center fw-semibold'>Degrees</h1>
-                <p className='text-center w-75 mb-5'></p>
+                <h1 className='text-center fw-semibold hero-text-1'>Degrees</h1>
+                <p className='text-center w-75 mb-5 hero-text-2'></p>
             </div>
         </header>
 
         <div className='container py-5'>
             <div className='row g-4'>
-                {courses.map((course) => (
-                    <div key={course.id} className='col-lg-6'>
-                        <Card className='text-white shadow scale-hover-effect'>
-                            <Card.Img src={course.img} />
+                {courses.map((course, index) => (
+                    <div key={course.id} className={`col-lg-6 reveal reveal-scale delay-${(index % 2) + 1}`}>
+                        <Card className='text-white shadow card-cool'>
+                            <div className='img-zoom'>
+                                <Card.Img src={course.img} />
+                            </div>
                             <Card.ImgOverlay className='d-flex flex-column align-items-center justify-content-center p-md-5'>
                                 <Card.Title className='fs-1 text-danger'>{course.title}</Card.Title>
                                 <Card.Text className='text-center'>{course.description}</Card.Text>
@@ -60,7 +62,7 @@ function Courses() {
             </div>
         </div>
 
-        <div className='bg-dark text-light py-5'>
+        <div className='bg-dark text-light py-5 reveal reveal-up'>
             <FaqAccordion />
         </div>
     </div>

@@ -1,5 +1,6 @@
 import './App.css';
 import { Link, Routes, Route, useLocation } from 'react-router-dom';
+import { useScrollReveal } from './hooks/useScrollReveal';
 import belteiLogo from './utils/images/beltei_international_university_in_cambodia.jpg';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -13,6 +14,7 @@ import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   const location = useLocation();
+  useScrollReveal(location.pathname);
   return (
     <div>
       <Navbar expand="lg" className='position-absolute w-100'>

@@ -35,54 +35,57 @@ function Home() {
     <div className='home-page'>
         <header className='h-100 min-vh-100 d-flex align-items-center text-light'>
             <div className='container d-flex flex-column align-items-center'>
-                <h2>Welcome To</h2>
-                <h1 className='text-center fw-semibold'>BELTEI International University</h1>
-                <p>Attract the students of BELTEI International School as well as the students from the provinces all over the country who have graduated from high school (BacII), to pursue their higher education at BELTEI International University</p>
-                <div className='d-flex flex-column flex-sm-row align-items-center'>
+                <h2 className='hero-text-1'>Welcome To</h2>
+                <h1 className='text-center fw-semibold hero-text-2'>BELTEI International University</h1>
+                <p className='hero-text-3'>Attract the students of BELTEI International School as well as the students from the provinces all over the country who have graduated from high school (BacII), to pursue their higher education at BELTEI International University</p>
+                <div className='d-flex flex-column flex-sm-row align-items-center hero-text-4'>
                     <Link to="/courses">
-                        <button type='button' className='btn btn-danger btn-lg mx-0 mx-sm-2 my-2 my-sm-0'>Our Courses</button>
+                        <button type='button' className='btn btn-danger btn-lg mx-0 mx-sm-2 my-2 my-sm-0 btn-shimmer'>Our Courses</button>
                     </Link>
                     <Link to="/contact">
-                        <button type='button' className='btn btn-outline-light btn-lg mx-0 mx-sm-2 my-2 my-sm-0'>Contact Us</button>
+                        <button type='button' className='btn btn-outline-light btn-lg mx-0 mx-sm-2 my-2 my-sm-0 btn-shimmer'>Contact Us</button>
                     </Link>
                 </div>
             </div>
         </header>
 
-        <div className="py-5">
+        <div className="py-5 reveal reveal-up">
             <ChooseSection />
         </div>
 
         <div className='py-5 bg-light'>
             <div className="container">
                 <div className='row d-flex align-items-center justify-content-around'>
-                    <div className='col-lg-5'>
+                    <div className='col-lg-5 reveal reveal-left'>
                         <h2 className='text-capitalize'>2025 start courses</h2>
-                        
                         <Link to="/courses">
-                            <button type='button' className='btn btn-danger btn-lg mx-0 mx-sm-2 my-2 my-sm-0'>Learn More</button>
+                            <button type='button' className='btn btn-danger btn-lg mx-0 mx-sm-2 my-2 my-sm-0 btn-shimmer'>Learn More</button>
                         </Link>
                     </div>
-                    <div className='col-lg-5 mt-5 mt-lg-0'>
-                        <img src={StartCoursesImg} className='img-fluid' alt="" />
+                    <div className='col-lg-5 mt-5 mt-lg-0 reveal reveal-right'>
+                        <div className='img-zoom'>
+                            <img src={StartCoursesImg} className='img-fluid' alt="" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div className="py-5">
+        <div className="py-5 reveal reveal-up">
             <FaqAccordion />
         </div>
 
         <div className='blog-section text-light py-5'>
             <div className='container d-flex flex-column align-items-center'>
-                <h2 className='text-center text-capitalize mb-5'>Latest on the blog</h2>
+                <h2 className='text-center text-capitalize mb-5 reveal reveal-up heading-underline'>Latest on the blog</h2>
                 <div className='row g-4'>
-                    {blogs.map((blog) => (
-                        <div key={blog.id} className='col-md-6 col-lg-4'>
+                    {blogs.map((blog, index) => (
+                        <div key={blog.id} className={`col-md-6 col-lg-4 reveal reveal-up delay-${index + 1}`}>
                             <Link to="/blog" className='text-decoration-none'>
-                                <Card className='h-100 shadow scale-hover-effect'>
-                                    <Card.Img variant="top" src={blog.img} />
+                                <Card className='h-100 shadow card-cool'>
+                                    <div className='img-zoom'>
+                                        <Card.Img variant="top" src={blog.img} />
+                                    </div>
                                     <Card.Body className='p-md-5'>
                                         <Card.Title>{blog.title}</Card.Title>
                                         <Card.Text>{blog.description}</Card.Text>
@@ -93,7 +96,7 @@ function Home() {
                     ))}
                 </div>
                 <Link to="/blog">
-                    <button type='button' className='btn btn-danger btn-lg mt-5'>Read More Blogs</button>
+                    <button type='button' className='btn btn-danger btn-lg mt-5 btn-shimmer reveal reveal-up'>Read More Blogs</button>
                 </Link>
             </div>
         </div>
