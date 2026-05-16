@@ -17,7 +17,7 @@ function App() {
   useScrollReveal(location.pathname);
   return (
     <div>
-      <Navbar expand="lg" className='position-absolute w-100'>
+      <Navbar expand="lg" className='position-fixed w-100' style={{ backgroundColor: '#1a1a2e', zIndex: 1000 }}>
         <Container>
           <Navbar.Brand>
             <Link to="/" className='navbar-brand d-flex align-items-center'>
