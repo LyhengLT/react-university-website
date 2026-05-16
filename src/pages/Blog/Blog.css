@@ -1,3 +1,80 @@
 .blog-page header {
-    background-image: linear-gradient(rgba(5, 10, 35, 0.75), rgba(5, 10, 35, 0.75)), url(../../utils/images/blog-page-header.jpg);
+    background-image: var(--gradient-hero), url(../../utils/images/blog-page-header.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.blog-hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.35);
+    padding: 5px 18px;
+    border-radius: 50px;
+}
+
+.blog-card {
+    border-radius: var(--card-radius) !important;
+    background: #fff;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow-hover) !important;
+}
+
+.blog-card-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog-card-img img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.blog-category-tag {
+    display: inline-block;
+    width: fit-content;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--crimson);
+    background: rgba(193,39,45,0.08);
+    border: 1px solid rgba(193,39,45,0.2);
+    padding: 3px 10px;
+    border-radius: 50px;
+}
+
+.blog-card-title {
+    font-weight: 700;
+    font-size: 1rem !important;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.blog-card-text {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.blog-read-more {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--crimson);
+    letter-spacing: 0.3px;
+    transition: gap 0.2s;
+}
+
+.blog-card:hover .blog-read-more {
+    letter-spacing: 0.8px;
 }

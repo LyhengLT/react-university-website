@@ -1,5 +1,7 @@
 .home-page header {
-    background-image: linear-gradient(rgba(5, 10, 35, 0.75), rgba(5, 10, 35, 0.75)), url(../../utils/images/home-page-header.jpg);
+    background-image: var(--gradient-hero), url(../../utils/images/home-page-header.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 header {
@@ -7,8 +9,85 @@ header {
     background-position: center;
 }
 
+/* Hero badge */
+.hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.35);
+    padding: 5px 18px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    max-width: 600px;
+    opacity: 0.85;
+    margin-bottom: 32px;
+}
+
+/* Stats section */
+.stats-section {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-bottom: 2px solid rgba(193,39,45,0.3);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.stat-number {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 6px;
+}
+
+/* Start courses section */
+.start-courses-section {
+    background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
+}
+
+.start-courses-section h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+}
+
+/* Blog section */
 .blog-section {
-    background-image: linear-gradient(rgba(5, 10, 35, 0.75), rgba(5, 10, 35, 0.75)), url(../../utils/images/blog-section-img.jpg);
+    background-image: linear-gradient(135deg, rgba(13,27,62,0.92) 0%, rgba(30,58,138,0.82) 100%), url(../../utils/images/blog-section-img.jpg);
     background-size: cover;
     background-position: center;
+}
+
+.blog-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.25);
+    padding: 3px 10px;
+    border-radius: 50px;
 }

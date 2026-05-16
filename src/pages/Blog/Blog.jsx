@@ -13,40 +13,81 @@ import Blog8Img from '../../utils/images/blog8-img.jpg';
 import Blog9Img from '../../utils/images/blog9-img.jpg';
 
 const blogs = [
-    { id: 1, img: [Blog1Img], title: 'Blog 1', description: "BELTEI International University will become the most well-known university in Cambodia with high quality of education in alignment with national program and international program standards, which is recognized worldwide and in accordance with the BELTEI's slogan" },
-    { id: 2, img: [Blog2Img], title: 'Blog 2', description: "Builds the spirit to love nation and motherland, preserve its culture and national identity, obey the state laws and the BELTEI's regulations as well as possess justice, morality, and virtue like a bamboo shoot growing up to bamboo for the future of the country" },
-    { id: 3, img: [Blog3Img], title: 'Blog 3', description: 'Invites special guest speakers who are professionals to conduct presentation on various topics related to each sector in order to offer the students are well as lecturers more important experiences and new ideas to supplementary and enhance the knowledge that they have learnt from the university' },
-    { id: 4, img: [Blog4Img], title: 'Blog 4', description: "BELTEI International University's graduated will obtain the higher education of high quality in accordance with national and international standards as well as be able to transfer to study at overseas universities in the same year as they study at BELTEI International University." },
-    { id: 5, img: [Blog5Img], title: 'Blog 5', description: "BELTEI International University's graduated will obtain the higher education of high quality in accordance with national and international standards as well as be able to transfer to study at overseas universities in the same year as they study at BELTEI International University." },
-    { id: 6, img: [Blog6Img], title: 'Blog 6', description: "BELTEI International University's graduated will obtain the higher education of high quality in accordance with national and international standards as well as be able to transfer to study at overseas universities in the same year as they study at BELTEI International University." },
-    { id: 7, img: [Blog7Img], title: 'Blog 7', description: "BELTEI International University's graduated will obtain the higher education of high quality in accordance with national and international standards as well as be able to transfer to study at overseas universities in the same year as they study at BELTEI International University." },
-    { id: 8, img: [Blog8Img], title: 'Blog 8', description: "BELTEI International University's graduated will obtain the higher education of high quality in accordance with national and international standards as well as be able to transfer to study at overseas universities in the same year as they study at BELTEI International University." },
-    { id: 9, img: [Blog9Img], title: 'Blog 9', description: "BELTEI International University's graduated will obtain the higher education of high quality in accordance with national and international standards as well as be able to transfer to study at overseas universities in the same year as they study at BELTEI International University." },
+    {
+        id: 1, img: Blog1Img, category: 'Academics',
+        title: 'BIU Launches New AI & Data Science Program',
+        description: 'BELTEI International University introduces a cutting-edge Artificial Intelligence and Data Science track in partnership with leading tech companies, preparing students for the digital economy.'
+    },
+    {
+        id: 2, img: Blog2Img, category: 'Campus Life',
+        title: 'Annual Cultural Festival Celebrates Khmer Heritage',
+        description: 'Students from all three campuses came together for the annual Khmer Cultural Festival, showcasing traditional dances, music, and the vibrant diversity of Cambodian culture.'
+    },
+    {
+        id: 3, img: Blog3Img, category: 'Research',
+        title: 'BIU Research Team Wins ASEAN Innovation Award',
+        description: 'A team of BIU students and faculty won first place at the ASEAN Innovation Summit for their groundbreaking research into sustainable water purification technologies for rural Cambodia.'
+    },
+    {
+        id: 4, img: Blog4Img, category: 'Scholarships',
+        title: '500 New Scholarships Available for 2025 Intake',
+        description: 'BELTEI International University is offering 500 merit-based and need-based scholarships for the upcoming academic year, ensuring talented students from all backgrounds can access quality education.'
+    },
+    {
+        id: 5, img: Blog5Img, category: 'Partnerships',
+        title: 'BIU Signs MOU with South Korean Universities',
+        description: 'BIU has formalized academic exchange partnerships with three leading South Korean universities, opening new pathways for students to study abroad and gain global exposure.'
+    },
+    {
+        id: 6, img: Blog6Img, category: 'Events',
+        title: 'Graduation Ceremony 2024: 3,200 Students Graduate',
+        description: 'Over 3,200 students from across all faculties received their degrees at the grand 2024 graduation ceremony held at the BIU Main Campus Auditorium, attended by government officials and industry leaders.'
+    },
+    {
+        id: 7, img: Blog7Img, category: 'Career',
+        title: 'BIU Career Fair Connects Students with Top Employers',
+        description: 'More than 80 companies attended this year\'s BIU Career Fair, offering internship and full-time employment opportunities to final-year students across all disciplines.'
+    },
+    {
+        id: 8, img: Blog8Img, category: 'Sports',
+        title: 'BIU Football Team Champions the National University League',
+        description: 'The BIU Eagles football team clinched the National University Football Championship, beating 24 teams in a thrilling tournament that showcased the athletic excellence cultivated on campus.'
+    },
+    {
+        id: 9, img: Blog9Img, category: 'Community',
+        title: 'Community Outreach: BIU Students Build Schools in Provinces',
+        description: 'Volunteers from BIU\'s student union spent the semester break constructing a new school building in Kampong Speu province, contributing to Cambodia\'s rural education development.'
+    },
 ];
 
 function Blog() {
   return (
     <div className='blog-page'>
         <header className='height-75'>
-            <div className='container h-100 d-flex flex-column align-items-center justify-content-center text-light'>
-                <h1 className='text-center fw-semibold hero-text-1'>Blog</h1>
-                <p className='text-center w-75 mb-5 hero-text-2'>BELTEI International University's graduated will obtain the higher education of high quality in accordance with national and international standards as well as be able to transfer to study at overseas universities in the same year as they study at BELTEI International University.</p>
+            <div className='container h-100 d-flex flex-column align-items-center justify-content-center text-light text-center'>
+                <span className='blog-hero-badge hero-text-1'>Latest from BIU</span>
+                <h1 className='text-center fw-bold hero-text-2 mt-3'>Our Blog</h1>
+                <p className='text-center hero-text-3 mt-2' style={{maxWidth:'560px',opacity:0.82,fontSize:'1rem'}}>
+                    News, stories, and insights from Cambodia's most dynamic university community.
+                </p>
             </div>
         </header>
 
         <div className='bg-body-tertiary py-5'>
-            <div className="container">
-                <div className="row g-4">
+            <div className='container'>
+                <div className='row g-4'>
                     {blogs.map((blog, index) => (
                         <div key={blog.id} className={`col-md-6 col-lg-4 reveal reveal-up delay-${(index % 3) + 1}`}>
                             <Link to="/blog" className='text-decoration-none'>
-                                <Card className='h-100 shadow card-cool bg-dark text-light border-0'>
-                                    <div className='img-zoom'>
+                                <Card className='h-100 shadow blog-card border-0'>
+                                    <div className='img-zoom blog-card-img'>
                                         <Card.Img variant="top" src={blog.img} />
                                     </div>
-                                    <Card.Body className='p-md-5 d-flex flex-column align-items-center'>
-                                        <Card.Title className='fs-2 mb-4'>{blog.title}</Card.Title>
-                                        <Card.Text className='text-center'>{blog.description}</Card.Text>
+                                    <Card.Body className='p-4 d-flex flex-column'>
+                                        <span className='blog-category-tag mb-2'>{blog.category}</span>
+                                        <Card.Title className='blog-card-title'>{blog.title}</Card.Title>
+                                        <Card.Text className='blog-card-text flex-grow-1'>{blog.description}</Card.Text>
+                                        <span className='blog-read-more mt-3'>Read More →</span>
                                     </Card.Body>
                                 </Card>
                             </Link>
@@ -56,7 +97,7 @@ function Blog() {
             </div>
         </div>
     </div>
-  )
+  );
 }
 
 export default Blog;

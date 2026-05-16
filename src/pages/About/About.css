@@ -1,3 +1,105 @@
 .about-page header {
-    background-image: linear-gradient(rgba(5, 10, 35, 0.75), rgba(5, 10, 35, 0.75)), url(../../utils/images/about-page-header.jpg);
+    background-image: var(--gradient-hero), url(../../utils/images/about-page-header.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.35);
+    padding: 5px 18px;
+    border-radius: 50px;
+}
+
+.about-page .study-section h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.25;
+}
+
+.about-page .study-section p {
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.w-85 { width: 85%; }
+
+/* Milestones */
+.milestone-section {
+    background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
+}
+
+.milestone-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px 24px;
+    border: 1px solid #e8ecf5;
+    box-shadow: 0 4px 20px rgba(13,27,62,0.07);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milestone-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(13,27,62,0.12);
+}
+
+.milestone-year {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--crimson);
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.milestone-event {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Team cards */
+.team-card {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(13,27,62,0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(13,27,62,0.14);
+}
+
+.team-card .person-img {
+    border-radius: 0;
+}
+
+.team-info {
+    padding: 16px 20px;
+    border-top: 2px solid rgba(193,39,45,0.12);
+}
+
+.team-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 2px;
+}
+
+.team-role {
+    font-size: 0.78rem;
+    color: var(--crimson);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin: 0;
 }

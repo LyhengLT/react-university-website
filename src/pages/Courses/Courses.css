@@ -1,12 +1,125 @@
 .courses-page header {
-    background-image: linear-gradient(rgba(5, 10, 35, 0.75), rgba(5, 10, 35, 0.75)), url('../../utils/images/courses-bg.jpg');
-
+    background-image: var(--gradient-hero), url('../../utils/images/courses-bg.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-.courses-page .card-img-overlay {
-    background-color: rgba(5, 10, 35, 0.7);
+/* Hero badge reuse */
+.hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.35);
+    padding: 5px 18px;
+    border-radius: 50px;
 }
 
-.courses-page .card:hover {
+/* Filter bar */
+.course-filter-bar {
+    background: #f8faff;
+    border-bottom: 1px solid #e8ecf5;
+}
+
+.filter-btn {
+    padding: 8px 22px;
+    border-radius: 50px;
+    border: 2px solid #dde2ef;
+    background: #fff;
+    color: var(--navy);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--crimson);
+    color: var(--crimson);
+}
+
+.filter-btn.active {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(193,39,45,0.3);
+}
+
+/* Course card */
+.course-card {
+    border-radius: var(--card-radius) !important;
+    border: 1px solid #e8ecf5 !important;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow-hover) !important;
+}
+
+.course-card-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.course-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s cubic-bezier(0.22,1,0.36,1);
+}
+
+.course-card:hover .course-card-image img {
+    transform: scale(1.07);
+}
+
+.course-card-overlay {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
+
+.course-level-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    background: rgba(13,27,62,0.75);
+    color: #fff;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.course-meta-chip {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: #f0f4f8;
+    padding: 3px 10px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.course-title {
+    font-size: 1.1rem !important;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 10px;
+}
+
+.course-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
 }
