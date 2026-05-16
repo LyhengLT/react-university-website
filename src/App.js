@@ -1,5 +1,6 @@
 import './App.css';
 import { Link, Routes, Route } from 'react-router-dom';
+import belteiLogo from './utils/images/beltei_international_university_in_cambodia.jpg';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -17,10 +18,7 @@ function App() {
         <Container>
           <Navbar.Brand>
             <Link to="/" className='navbar-brand d-flex align-items-center'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#dc3545" className="bi bi-backpack-fill" viewBox="0 0 16 16">
-                <path d="M5 13v-3h4v.5a.5.5 0 0 0 1 0V10h1v3z"/>
-                
-              </svg>
+              <img src={belteiLogo} alt="Beltei International University" style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '4px' }} />
               <span className='mx-2 text-light lh-1 fw-semibold'>
                 BELTEI
                 <br></br>
