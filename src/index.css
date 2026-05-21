@@ -13,9 +13,14 @@
   --gradient-navy:   linear-gradient(135deg, #0d1b3e 0%, #1e3a8a 100%);
   --gradient-crimson: linear-gradient(135deg, #c1272d 0%, #ff5252 100%);
   --gradient-hero:   linear-gradient(135deg, rgba(13,27,62,0.88) 0%, rgba(30,58,138,0.72) 100%);
-  --card-radius:   14px;
+  --card-radius:   8px;
   --card-shadow:   0 4px 24px rgba(13,27,62,0.10);
   --card-shadow-hover: 0 20px 50px rgba(13,27,62,0.18);
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {

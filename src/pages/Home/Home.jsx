@@ -38,6 +38,12 @@ const stats = [
     { label: 'Graduate Employment', value: 95, suffix: '%' },
 ];
 
+const heroHighlights = [
+    'Global transfer pathways',
+    'Industry-ready programs',
+    'Scholarship support'
+];
+
 function StatCounter({ value, suffix, label }) {
     const [count, ref] = useCountUp(value, 1800);
     return (
@@ -51,21 +57,32 @@ function StatCounter({ value, suffix, label }) {
 function Home() {
   return (
     <div className='home-page'>
-        <header className='h-100 min-vh-100 d-flex align-items-center text-light'>
-            <div className='container d-flex flex-column align-items-center text-center'>
-                <span className='hero-badge hero-text-1'>Cambodia's Premier University Since 1992</span>
-                <h1 className='fw-bold hero-text-2'>BELTEI International<br />University</h1>
-                <p className='hero-subtitle hero-text-3'>
-                    Empowering the next generation of Cambodian leaders through world-class education,
-                    cutting-edge research, and a vibrant campus community.
-                </p>
-                <div className='d-flex flex-column flex-sm-row align-items-center gap-3 hero-text-4'>
-                    <Link to="/courses">
-                        <button type='button' className='btn btn-danger btn-lg btn-shimmer px-4'>Explore Degrees</button>
-                    </Link>
-                    <Link to="/contact">
-                        <button type='button' className='btn btn-outline-light btn-lg btn-shimmer px-4'>Contact Us</button>
-                    </Link>
+        <header className='home-hero text-light'>
+            <div className='container hero-shell'>
+                <div className='hero-content'>
+                    <span className='hero-badge hero-text-1'>Cambodia's Premier University Since 1992</span>
+                    <h1 className='fw-bold hero-text-2'>Build your future at BELTEI International University</h1>
+                    <p className='hero-subtitle hero-text-3'>
+                        International programs, practical learning, and a connected campus experience
+                        for students ready to lead in Cambodia and beyond.
+                    </p>
+                    <div className='d-flex flex-column flex-sm-row align-items-sm-center gap-3 hero-text-4'>
+                        <Link to="/courses">
+                            <button type='button' className='btn btn-danger btn-lg btn-shimmer px-4'>Explore Degrees</button>
+                        </Link>
+                        <Link to="/contact">
+                            <button type='button' className='btn btn-outline-light btn-lg btn-shimmer px-4'>Apply Now</button>
+                        </Link>
+                    </div>
+                </div>
+
+                <div className='hero-highlight-bar hero-text-4'>
+                    {heroHighlights.map((item) => (
+                        <div className='hero-highlight' key={item}>
+                            <span className='highlight-dot'></span>
+                            <span>{item}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
         </header>
@@ -93,7 +110,7 @@ function Home() {
                 <div className='row d-flex align-items-center justify-content-around gy-5'>
                     <div className='col-lg-5 reveal reveal-left'>
                         <span className='section-label'>Enroll Now</span>
-                        <h2 className='mt-3 mb-3'>2025 Academic<br />Intake Is Open</h2>
+                        <h2 className='mt-3 mb-3'>2026 Academic<br />Intake Is Open</h2>
                         <p style={{color:'var(--text-muted)',lineHeight:'1.8',marginBottom:'28px'}}>
                             Applications are now open for undergraduate, postgraduate, and doctoral programs.
                             Secure your place at Cambodia's most internationally recognized university.
