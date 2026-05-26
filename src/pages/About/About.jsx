@@ -12,6 +12,7 @@ import Person6 from '../../utils/images/person6.jpg';
 import Person7 from '../../utils/images/person7.jpg';
 import Person8 from '../../utils/images/person8.jpg';
 import Person9 from '../../utils/images/person9.jpg';
+import { FOUNDING_YEAR, getSiteDateInfo } from '../../utils/siteDates';
 
 const persons = [
     { id: 1, img: Person1, name: 'H.E. Dr. Sok Vanna', role: 'Rector' },
@@ -25,14 +26,17 @@ const persons = [
     { id: 9, img: Person9, name: 'Ms. Noun Sreymom', role: 'Director, International Relations' },
 ];
 
-const milestones = [
-    { year: '1992', event: 'BELTEI was founded as a pioneering private institution in Cambodia.' },
+const getMilestones = ({ currentYear, yearsOfExcellence }) => [
+    { year: FOUNDING_YEAR, event: 'BELTEI was founded as a pioneering private institution in Cambodia.' },
     { year: '2002', event: 'Achieved full university status and launched degree programs.' },
     { year: '2012', event: 'Opened two additional campuses — Chom Chav and Prey Sor.' },
-    { year: '2022', event: 'Celebrated 30 years of excellence with 100,000+ graduates.' },
+    { year: currentYear, event: `Celebrating ${yearsOfExcellence} years of excellence with 100,000+ graduates.` },
 ];
 
 function About() {
+  const siteDates = getSiteDateInfo();
+  const milestones = getMilestones(siteDates);
+
   return (
     <div className='about-page'>
         <header className='height-75'>
@@ -52,7 +56,7 @@ function About() {
                     <span className='section-label'>Why Study With Us</span>
                     <h2 className='mt-3 mb-4'>Shaping Cambodia's<br />Future Leaders</h2>
                     <p>
-                        Founded in 1992, BELTEI International University has grown into Cambodia's most respected
+                        Founded in {FOUNDING_YEAR}, BELTEI International University has grown into Cambodia's most respected
                         higher education institution. We offer internationally accredited programs taught by leading
                         academics and industry practitioners across three modern campuses in Phnom Penh.
                     </p>

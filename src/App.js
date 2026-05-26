@@ -11,9 +11,11 @@ import About from './pages/About/About';
 import Blog from './pages/Blog/Blog';
 import Contact from './pages/Contact/Contact';
 import NotFound from './pages/NotFound/NotFound';
+import { FOUNDING_YEAR, getSiteDateInfo } from './utils/siteDates';
 
 function App() {
   const location = useLocation();
+  const siteDates = getSiteDateInfo();
   useScrollReveal(location.pathname);
   return (
     <div>
@@ -54,7 +56,7 @@ function App() {
           <div className='row gy-5'>
             <div className='col-md-4'>
               <p className='text-uppercase fw-bold mb-1' style={{fontSize:'11px',letterSpacing:'2px',color:'rgba(245,166,35,0.9)'}}>BELTEI International University</p>
-              <p style={{fontSize:'0.82rem',lineHeight:'1.7',maxWidth:'260px'}}>Empowering Cambodia's future through world-class education since 1992.</p>
+              <p style={{fontSize:'0.82rem',lineHeight:'1.7',maxWidth:'260px'}}>Empowering Cambodia's future through world-class education since {FOUNDING_YEAR}, now {siteDates.yearsOfExcellence} years strong.</p>
               <ul className='footer-social-icons list-unstyled d-flex gap-3 mt-3'>
                 <li>
                   <a href="https://facebook.com" target="_blank" rel="noreferrer">
@@ -110,7 +112,7 @@ function App() {
           </div>
           <hr style={{borderColor:'rgba(255,255,255,0.08)',marginTop:'40px'}} />
           <p className='text-center mb-0' style={{fontSize:'0.78rem',color:'rgba(255,255,255,0.35)',paddingBottom:'16px'}}>
-            © {new Date().getFullYear()} BELTEI International University. All rights reserved.
+            © {siteDates.currentYear} BELTEI International University. All rights reserved.
           </p>
         </div>
       </footer>

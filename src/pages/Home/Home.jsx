@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
 import { Link } from 'react-router-dom';
 import ChooseSection from '../../components/ChooseSection/ChooseSection';
@@ -9,6 +9,7 @@ import Blog1Img from '../../utils/images/blog1-img.jpg';
 import Blog2Img from '../../utils/images/blog2-img.jpg';
 import Blog3Img from '../../utils/images/blog3-img.jpg';
 import { useCountUp } from '../../hooks/useCountUp';
+import { FOUNDING_YEAR, formatCambodiaDateTime, getSiteDateInfo } from '../../utils/siteDates';
 
 const blogs = [
     {
@@ -31,10 +32,10 @@ const blogs = [
     }
 ];
 
-const stats = [
+const getStats = (yearsOfExcellence) => [
     { label: 'Students Enrolled', value: 15000, suffix: '+' },
     { label: 'Programs Offered', value: 60, suffix: '+' },
-    { label: 'Years of Excellence', value: 32, suffix: '' },
+    { label: 'Years of Excellence', value: yearsOfExcellence, suffix: '' },
     { label: 'Graduate Employment', value: 95, suffix: '%' },
 ];
 
@@ -54,18 +55,39 @@ function StatCounter({ value, suffix, label }) {
     );
 }
 
+function LiveDateBadge() {
+    const [now, setNow] = useState(() => new Date());
+
+    useEffect(() => {
+        const timer = setInterval(() => setNow(new Date()), 60000);
+        return () => clearInterval(timer);
+    }, []);
+
+    return (
+        <div className='hero-date-pill hero-text-3' aria-live='polite'>
+            <span className='hero-date-orbit'></span>
+            <span>Today in Phnom Penh</span>
+            <strong>{formatCambodiaDateTime(now)}</strong>
+        </div>
+    );
+}
+
 function Home() {
+  const siteDates = getSiteDateInfo();
+  const stats = getStats(siteDates.yearsOfExcellence);
+
   return (
     <div className='home-page'>
         <header className='home-hero text-light'>
             <div className='container hero-shell'>
                 <div className='hero-content'>
-                    <span className='hero-badge hero-text-1'>Cambodia's Premier University Since 1992</span>
+                    <span className='hero-badge hero-text-1'>Cambodia's Premier University Since {FOUNDING_YEAR}</span>
                     <h1 className='fw-bold hero-text-2'>Build your future at BELTEI International University</h1>
                     <p className='hero-subtitle hero-text-3'>
                         International programs, practical learning, and a connected campus experience
                         for students ready to lead in Cambodia and beyond.
                     </p>
+                    <LiveDateBadge />
                     <div className='d-flex flex-column flex-sm-row align-items-sm-center gap-3 hero-text-4'>
                         <Link to="/courses">
                             <button type='button' className='btn btn-danger btn-lg btn-shimmer px-4'>Explore Degrees</button>
@@ -110,7 +132,7 @@ function Home() {
                 <div className='row d-flex align-items-center justify-content-around gy-5'>
                     <div className='col-lg-5 reveal reveal-left'>
                         <span className='section-label'>Enroll Now</span>
-                        <h2 className='mt-3 mb-3'>2026 Academic<br />Intake Is Open</h2>
+                        <h2 className='mt-3 mb-3'>{siteDates.intakeYear} Academic<br />Intake Is Open</h2>
                         <p style={{color:'var(--text-muted)',lineHeight:'1.8',marginBottom:'28px'}}>
                             Applications are now open for undergraduate, postgraduate, and doctoral programs.
                             Secure your place at Cambodia's most internationally recognized university.

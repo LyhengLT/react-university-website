@@ -33,22 +33,55 @@
 
 /* Milestones */
 .milestone-section {
-    background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8faff 0%, #eef7f6 100%);
+}
+
+.milestone-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(45,212,191,0.38), rgba(193,39,45,0.28), transparent);
+    transform: translateY(-50%);
+}
+
+.milestone-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .milestone-card {
+    position: relative;
     background: #fff;
-    border-radius: 14px;
+    border-radius: var(--card-radius);
     padding: 28px 24px;
     border: 1px solid #e8ecf5;
     box-shadow: 0 4px 20px rgba(13,27,62,0.07);
     height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.milestone-card::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(45,212,191,0.3), rgba(45,212,191,0));
+    animation: milestoneGlow 3s ease-in-out infinite;
 }
 
 .milestone-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 16px 40px rgba(13,27,62,0.12);
+    border-color: rgba(45,212,191,0.36);
 }
 
 .milestone-year {
@@ -68,7 +101,7 @@
 
 /* Team cards */
 .team-card {
-    border-radius: 14px;
+    border-radius: var(--card-radius);
     overflow: hidden;
     background: #fff;
     box-shadow: 0 4px 20px rgba(13,27,62,0.08);
@@ -76,7 +109,7 @@
 }
 
 .team-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.01);
     box-shadow: 0 20px 48px rgba(13,27,62,0.14);
 }
 
@@ -102,4 +135,9 @@
     font-weight: 600;
     letter-spacing: 0.3px;
     margin: 0;
+}
+
+@keyframes milestoneGlow {
+    0%, 100% { transform: scale(0.9); opacity: 0.55; }
+    50% { transform: scale(1.25); opacity: 1; }
 }
