@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import { Link, Routes, Route, useLocation } from 'react-router-dom';
 import { useScrollReveal } from './hooks/useScrollReveal';
@@ -16,9 +17,37 @@ import { FOUNDING_YEAR, getSiteDateInfo } from './utils/siteDates';
 function App() {
   const location = useLocation();
   const siteDates = getSiteDateInfo();
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   useScrollReveal(location.pathname);
+
+  useEffect(() => {
+    const updateScrollDetails = () => {
+      const scrollTop = window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+
+      setScrollProgress(Math.min(100, Math.max(0, progress)));
+      setShowBackToTop(scrollTop > 520);
+    };
+
+    updateScrollDetails();
+    window.addEventListener('scroll', updateScrollDetails, { passive: true });
+    window.addEventListener('resize', updateScrollDetails);
+
+    return () => {
+      window.removeEventListener('scroll', updateScrollDetails);
+      window.removeEventListener('resize', updateScrollDetails);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div>
+      <div className='scroll-progress' style={{ transform: `scaleX(${scrollProgress / 100})` }}></div>
       <Navbar expand="lg" className='position-fixed w-100'>
         <Container>
           <Navbar.Brand>
@@ -32,11 +61,11 @@ function App() {
           <Navbar.Toggle aria-controls='basic-navbar-nav' className='bg-light' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto justify-content-end w-100'>
-              <Nav.Link as={Link} to='/' className='text-uppercase'>Home</Nav.Link>
-              <Nav.Link as={Link} to='/courses' className='text-uppercase'>Degrees</Nav.Link>
-              <Nav.Link as={Link} to='/about' className='text-uppercase'>About us</Nav.Link>
-              <Nav.Link as={Link} to='/blog' className='text-uppercase'>Blog</Nav.Link>
-              <Nav.Link as={Link} to='/contact' className='text-uppercase'>Get in touch</Nav.Link>
+              <Nav.Link as={Link} to='/' active={location.pathname === '/'} className='text-uppercase'>Home</Nav.Link>
+              <Nav.Link as={Link} to='/courses' active={location.pathname === '/courses'} className='text-uppercase'>Degrees</Nav.Link>
+              <Nav.Link as={Link} to='/about' active={location.pathname === '/about'} className='text-uppercase'>About us</Nav.Link>
+              <Nav.Link as={Link} to='/blog' active={location.pathname === '/blog'} className='text-uppercase'>Blog</Nav.Link>
+              <Nav.Link as={Link} to='/contact' active={location.pathname === '/contact'} className='text-uppercase'>Get in touch</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -116,6 +145,15 @@ function App() {
           </p>
         </div>
       </footer>
+
+      <button
+        type='button'
+        className={`back-to-top ${showBackToTop ? 'is-visible' : ''}`}
+        onClick={scrollToTop}
+        aria-label='Back to top'
+      >
+        <span></span>
+      </button>
     </div>
   );
 }

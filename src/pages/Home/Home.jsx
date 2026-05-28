@@ -45,6 +45,27 @@ const heroHighlights = [
     'Scholarship support'
 ];
 
+const getCampusSignals = ({ intakeYear, yearsOfExcellence }) => [
+    {
+        eyebrow: 'Admissions Pulse',
+        title: `${intakeYear} Intake Now Open`,
+        text: 'Applications are active across undergraduate, postgraduate, and doctoral pathways.',
+        meta: 'Live application cycle',
+    },
+    {
+        eyebrow: 'Student Experience',
+        title: 'Connected Campus Life',
+        text: 'Clubs, events, exchange programs, and industry sessions keep the student journey active.',
+        meta: '3 Phnom Penh campuses',
+    },
+    {
+        eyebrow: 'Institution Signal',
+        title: `${yearsOfExcellence} Years Strong`,
+        text: 'A long-running academic network with international pathways and career-ready programs.',
+        meta: 'Since 1992',
+    },
+];
+
 function StatCounter({ value, suffix, label }) {
     const [count, ref] = useCountUp(value, 1800);
     return (
@@ -75,6 +96,7 @@ function LiveDateBadge() {
 function Home() {
   const siteDates = getSiteDateInfo();
   const stats = getStats(siteDates.yearsOfExcellence);
+  const campusSignals = getCampusSignals(siteDates);
 
   return (
     <div className='home-page'>
@@ -121,6 +143,34 @@ function Home() {
                 </div>
             </div>
         </div>
+
+        <section className='campus-signal-section py-5'>
+            <div className='container'>
+                <div className='campus-signal-header reveal reveal-up'>
+                    <span className='section-label'>Campus Dashboard</span>
+                    <h2>Modern learning, live admissions, real outcomes.</h2>
+                    <p>
+                        A quick snapshot of what is active right now across BELTEI International University.
+                    </p>
+                </div>
+                <div className='row g-4'>
+                    {campusSignals.map((signal, index) => (
+                        <div key={signal.title} className={`col-lg-4 reveal reveal-up delay-${index + 1}`}>
+                            <article className='campus-signal-card'>
+                                <span className='signal-index'>0{index + 1}</span>
+                                <p className='signal-eyebrow'>{signal.eyebrow}</p>
+                                <h3>{signal.title}</h3>
+                                <p className='signal-text'>{signal.text}</p>
+                                <div className='signal-meta'>
+                                    <span className='signal-dot'></span>
+                                    <span>{signal.meta}</span>
+                                </div>
+                            </article>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
 
         <div className="py-5 reveal reveal-up">
             <ChooseSection />
