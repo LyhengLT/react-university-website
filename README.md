@@ -99,7 +99,7 @@ The app no longer relies on scattered hard-coded year values for the main date-d
 src/utils/siteDates.js
 ```
 
-This powers:
+This power:
 
 - Current footer year
 - Years of excellence
