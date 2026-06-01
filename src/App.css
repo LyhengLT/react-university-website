@@ -336,6 +336,26 @@ nav .navbar-toggler:focus { box-shadow: none; }
     bottom: 14px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-up,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 .icon-float.delay-icon-2 { animation-delay: 0.6s; }
 .icon-float.delay-icon-3 { animation-delay: 1.2s; }
 

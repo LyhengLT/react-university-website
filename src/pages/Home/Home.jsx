@@ -66,6 +66,29 @@ const getCampusSignals = ({ intakeYear, yearsOfExcellence }) => [
     },
 ];
 
+const getApplicationSteps = (intakeYear) => [
+    {
+        label: 'Step 01',
+        title: 'Choose your pathway',
+        text: `Compare programs for the ${intakeYear} intake and match your degree to your career target.`,
+    },
+    {
+        label: 'Step 02',
+        title: 'Send your documents',
+        text: 'Prepare academic records, ID documents, and scholarship materials for review.',
+    },
+    {
+        label: 'Step 03',
+        title: 'Meet admissions',
+        text: 'Get guided by the admissions team on program fit, tuition, and campus options.',
+    },
+    {
+        label: 'Step 04',
+        title: 'Confirm enrollment',
+        text: 'Reserve your place, finish payment planning, and start orientation with BIU.',
+    },
+];
+
 function StatCounter({ value, suffix, label }) {
     const [count, ref] = useCountUp(value, 1800);
     return (
@@ -97,6 +120,7 @@ function Home() {
   const siteDates = getSiteDateInfo();
   const stats = getStats(siteDates.yearsOfExcellence);
   const campusSignals = getCampusSignals(siteDates);
+  const applicationSteps = getApplicationSteps(siteDates.intakeYear);
 
   return (
     <div className='home-page'>
@@ -200,6 +224,22 @@ function Home() {
                         <div className='img-zoom rounded-3 shadow-lg'>
                             <img src={StartCoursesImg} className='img-fluid rounded-3' alt="BIU Campus" />
                         </div>
+                    </div>
+                </div>
+
+                <div className='application-journey reveal reveal-up'>
+                    <div className='journey-heading'>
+                        <span className='section-label'>Application Journey</span>
+                        <h3>From interest to enrollment in four clear moves.</h3>
+                    </div>
+                    <div className='journey-track'>
+                        {applicationSteps.map((step, index) => (
+                            <article key={step.label} className={`journey-step delay-${index + 1}`}>
+                                <span>{step.label}</span>
+                                <h4>{step.title}</h4>
+                                <p>{step.text}</p>
+                            </article>
+                        ))}
                     </div>
                 </div>
             </div>
