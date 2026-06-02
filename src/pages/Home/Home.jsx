@@ -9,7 +9,12 @@ import Blog1Img from '../../utils/images/blog1-img.jpg';
 import Blog2Img from '../../utils/images/blog2-img.jpg';
 import Blog3Img from '../../utils/images/blog3-img.jpg';
 import { useCountUp } from '../../hooks/useCountUp';
-import { FOUNDING_YEAR, formatCambodiaDateTime, getSiteDateInfo } from '../../utils/siteDates';
+import {
+    FOUNDING_YEAR,
+    formatCambodiaDateTime,
+    getDailyCampusBrief,
+    getSiteDateInfo,
+} from '../../utils/siteDates';
 
 const blogs = [
     {
@@ -118,6 +123,7 @@ function LiveDateBadge() {
 
 function Home() {
   const siteDates = getSiteDateInfo();
+  const dailyBrief = getDailyCampusBrief();
   const stats = getStats(siteDates.yearsOfExcellence);
   const campusSignals = getCampusSignals(siteDates);
   const applicationSteps = getApplicationSteps(siteDates.intakeYear);
@@ -192,6 +198,29 @@ function Home() {
                             </article>
                         </div>
                     ))}
+                </div>
+            </div>
+        </section>
+
+        <section className='today-brief-section py-5'>
+            <div className='container'>
+                <div className='today-brief-panel reveal reveal-up'>
+                    <div className='today-brief-main'>
+                        <span className='section-label'>Fresh Today</span>
+                        <p className='today-brief-day'>{dailyBrief.todayLabel}</p>
+                        <h2>{dailyBrief.today.title}</h2>
+                        <p>{dailyBrief.today.text}</p>
+                        <div className='today-brief-meta'>
+                            <span className='today-brief-live-dot'></span>
+                            <span>{dailyBrief.today.meta}</span>
+                        </div>
+                    </div>
+                    <aside className='tomorrow-preview' aria-label='Tomorrow preview'>
+                        <span>Tomorrow Preview</span>
+                        <strong>{dailyBrief.tomorrowLabel}</strong>
+                        <h3>{dailyBrief.tomorrow.title}</h3>
+                        <p>{dailyBrief.tomorrow.text}</p>
+                    </aside>
                 </div>
             </div>
         </section>
